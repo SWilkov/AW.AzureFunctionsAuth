@@ -9,16 +9,14 @@ namespace AW.AzureFunctionsAuth.Services
     public AuthResult ValidateUserClaims(ApiAuthorizationResult apiAuthorization, 
       string[] apiPermissions)
     {
-      if (apiAuthorization == null || apiAuthorization.ClaimsPrincipal == null
-          || apiAuthorization.ClaimsPrincipal.Claims == null || !apiAuthorization.ClaimsPrincipal.Claims.Any())
-      {
+      if (apiAuthorization == null || apiAuthorization.ClaimsPrincipal == null)     
         throw new ArgumentNullException(nameof(apiAuthorization));
-      }
+      
+      if (apiAuthorization.ClaimsPrincipal.Claims == null || !apiAuthorization.ClaimsPrincipal.Claims.Any())
+        throw new ArgumentException("No claims present!");
 
-      if (apiPermissions == null || !apiPermissions.Any())
-      {
+      if (apiPermissions == null || !apiPermissions.Any())      
         throw new ArgumentException("no api permissions present");
-      }
 
       //All api permissions need to be found in the User Claims to authorize
       if (apiPermissions.All(x => apiAuthorization.ClaimsPrincipal.Claims.Any(c => c.Value.ToLower() == x.ToLower())))
