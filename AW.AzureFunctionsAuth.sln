@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW.AzureFunctionsAuth", "AW.AzureFunctionsAuth\AW.AzureFunctionsAuth.csproj", "{7C7A2482-4503-416F-9339-E32729F20B3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW.AzureFunctionsAuth.Tests", "AW.AzureFunctionsAuth.Tests\AW.AzureFunctionsAuth.Tests.csproj", "{84650789-EE84-4838-A3FE-ED985C573EE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7C7A2482-4503-416F-9339-E32729F20B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C7A2482-4503-416F-9339-E32729F20B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C7A2482-4503-416F-9339-E32729F20B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84650789-EE84-4838-A3FE-ED985C573EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84650789-EE84-4838-A3FE-ED985C573EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84650789-EE84-4838-A3FE-ED985C573EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84650789-EE84-4838-A3FE-ED985C573EE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
