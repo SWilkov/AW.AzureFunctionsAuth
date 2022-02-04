@@ -24,5 +24,25 @@ namespace AW.AzureFunctionsAuth.Services
 
       return AuthResult.UnAuthorized;
     }
+
+    public AuthResult ValidateApiPermissionsUserClaim(ApiAuthorizationResult apiAuthorization, string apiPermission)
+    {
+      if (apiAuthorization == null || apiAuthorization.ClaimsPrincipal == null
+          || apiAuthorization.ClaimsPrincipal.Claims == null || !apiAuthorization.ClaimsPrincipal.Claims.Any())
+      {
+        throw new ArgumentNullException(nameof(apiAuthorization));
+      }
+
+      if (string.IsNullOrWhiteSpace(apiPermission))
+      {
+        throw new ArgumentException("no api permission present");
+      }
+
+      //All api permissions need to be found in the User Claims to authorize
+      if (apiAuthorization.ClaimsPrincipal.Claims.Any(c => c.Value.ToLower() == apiPermission.ToLower()))
+        return AuthResult.Authorized;
+
+      return AuthResult.UnAuthorized;
+    }
   }
 }
