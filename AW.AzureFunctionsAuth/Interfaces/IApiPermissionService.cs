@@ -7,5 +7,7 @@ namespace AW.AzureFunctionsAuth.Interfaces
   {
     AuthResult ValidateUserClaims(ApiAuthorizationResult apiAuthorization, 
       string[] permissions);
+
+    AuthResult ValidateApiPermissionsUserClaim(ApiAuthorizationResult apiAuthorization, string apiPermission);
   }
 }
